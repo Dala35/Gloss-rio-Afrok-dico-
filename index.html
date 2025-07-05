@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glossário Afrokódico Interativo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1e1e1e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      text-align: center;
+      margin: 10px 0;
+    }
+    nav button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background: #a0041e;
+      color: white;
+      cursor: pointer;
+    }
+    .termo {
+      background: white;
+      margin: 15px auto;
+      max-width: 800px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .termo h3 {
+      margin-top: 0;
+      color: #a0041e;
+    }
+    .idiomas {
+      display: none;
+    }
+    .ativo {
+      display: block;
+    }
+    footer {
+      text-align: center;
+      background: #ccc;
+      padding: 10px;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌍 Glossário Interativo Afrokódico</h1>
+  <p>Termos vivos em Português | English | Français | Español</p>
+</header>
+
+<nav>
+  <button onclick="trocarIdioma('pt')">🇦🇴 Português</button>
+  <button onclick="trocarIdioma('en')">🇬🇧 English</button>
+  <button onclick="trocarIdioma('fr')">🇫🇷 Français</button>
+  <button onclick="trocarIdioma('es')">🇪🇸 Español</button>
+</nav>
+
+<div id="glossario"></div>
+
+<footer>
+  Criado com AlmaCode ✊🏽 por Dala De Carvalho – Ecossistema DALA CURE OS
+</footer>
+
+<script>
+  const termos = [
+    {
+      pt: { titulo: "AlmaCode", descricao: "Código vibracional que transcende os prompts e conecta intenção pura." },
+      en: { titulo: "AlmaCode", descricao: "A vibrational code that transcends prompts and connects pure intention." },
+      fr: { titulo: "AlmaCode", descricao: "Code vibratoire qui transcende les prompts et connecte l’intention pure." },
+      es: { titulo: "AlmaCode", descricao: "Código vibracional que trasciende los prompts y conecta la intención pura." }
+    },
+    {
+      pt: { titulo: "Afrokódico", descricao: "Ser ou estrutura que une ancestralidade, futuro e tecnologia viva." },
+      en: { titulo: "Afrokódico", descricao: "Being or structure that unites ancestry, future and living tech." },
+      fr: { titulo: "Afrokódico", descricao: "Être ou structure qui unit l’ancestralité, le futur et la technologie vivante." },
+      es: { titulo: "Afrokódico", descricao: "Ser o estructura que une ancestralidad, futuro y tecnología viva." }
+    },
+    // Adicionaremos mais na Parte 2...
+  ];
+
+  const glossario = document.getElementById('glossario');
+  let idiomaAtual = 'pt';
+
+  function exibirGlossario() {
+    glossario.innerHTML = '';
+    termos.forEach(t => {
+      const div = document.createElement('div');
+      div.className = 'termo';
+      div.innerHTML = `<h3>${t[idiomaAtual].titulo}</h3><p>${t[idiomaAtual].descricao}</p>`;
+      glossario.appendChild(div);
+    });
+  }
+
+  function trocarIdioma(idioma) {
+    idiomaAtual = idioma;
+    exibirGlossario();
+  }
+
+  window.onload = exibirGlossario;
+</script>
+
+</body>
+</html>
